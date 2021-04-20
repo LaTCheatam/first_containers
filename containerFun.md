@@ -12,7 +12,7 @@ docker container stop
 docker container rm
 docker container ls -a
 
-Phase 1 ****************\*\*\*\*****************
+Phase 1 ******\*\*\*\*******\*\*\*\*******\*\*\*\*******
 
 docker container run -it --name web nginx zsh
 
@@ -45,7 +45,7 @@ bin/sh -c "while :; do wget -qO- https://swapi.dev/api/people/?search=r2; printf
 
 docker container run --name characters -d -t alpine bin/sh -c "while :; do wget -qO- https://swapi.dev/api/people/?search=r2; printf '\n'; sleep 5s; done"
 
-Phase 3 ****************\*\*\*\*****************
+Phase 3 ******\*\*\*\*******\*\*\*\*******\*\*\*\*******
 
 docker network ls
 
@@ -57,4 +57,6 @@ docker container run -d -t --net narnia --net-alias=elasticsearch elasticsearch:
 docker container inspect nice_shockley
 docker container inspect fervent_golick
 
-docker container run --name nslookup --net narnia alpine elasticsearch
+docker container run --name nslookup --net narnia alpine nslookup elasticsearch
+
+docker container run -d -t --name centos centos curl -s elasticsearch:9200
