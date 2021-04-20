@@ -12,7 +12,7 @@ docker container stop
 docker container rm
 docker container ls -a
 
-Phase 1 ************************************
+Phase 1 ****************\*\*\*\*****************
 
 docker container run -it --name web nginx zsh
 
@@ -41,4 +41,20 @@ docker exec -i characters sh
 
 bin/sh -c "while :; do wget -qO- https://swapi.dev/api/people/?search=r2; printf '\n'; sleep 5s; done"
 
-## to run in background append command with container run. example: docker container run --name characters -d -t alpine bin/sh -c "while :; do wget -qO- https://swapi.dev/api/people/?search=r2; printf '\n'; sleep 5s; done"
+## to run in background append command with container run. example:
+
+docker container run --name characters -d -t alpine bin/sh -c "while :; do wget -qO- https://swapi.dev/api/people/?search=r2; printf '\n'; sleep 5s; done"
+
+Phase 3 ****************\*\*\*\*****************
+
+docker network ls
+
+docker network create --driver bridge narnia
+
+docker container run -d -t --net narnia --net-alias=elasticsearch elasticsearch:2
+docker container run -d -t --net narnia --net-alias=elasticsearch elasticsearch:2
+
+docker container inspect nice_shockley
+docker container inspect fervent_golick
+
+docker container run --name nslookup --net narnia alpine elasticsearch
