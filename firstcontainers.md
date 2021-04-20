@@ -12,3 +12,5 @@ docker container run --name centos centos
 docker container run --name centos -p 80:80 centos
 
 ping -c 5 127.0.0.1
+
+docker container run centos ping -c 5 127.0.0.1
